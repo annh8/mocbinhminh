@@ -1,0 +1,21 @@
+
+  <div class="col-md-9 col-sm-4">
+    <div class="content-form-page">
+      <form name="userform" method="post" #formCtrl="ngForm" class="form-horizontal form-without-legend">
+        <div class="form-group">
+          <label class="col-lg-2 control-label" for="first-name">Mật khẩu mới
+            <span class="require">*</span>
+          </label>
+          <div class="col-lg-8">
+            <input type="text" class="form-control" name="passnew" [(ngModel)]="passnew" required />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-8 col-md-offset-2 padding-left-0 padding-top-20">
+            <button class="btn btn-primary" type="button" (click)="Save()" [disabled]="formCtrl.form.invalid">Save</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- END CONTENT -->

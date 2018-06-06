@@ -1,0 +1,120 @@
+<app-slider>
+
+</app-slider>
+
+<div class="main">
+  <div class="container">
+    <a href="#" class="fancybox-button"></a>
+    <div class="row">
+      <!-- BEGIN SIDEBAR -->
+      <div class="sidebar col-md-3 col-sm-5">
+        <app-left-menu></app-left-menu>
+      </div>
+      <!-- END SIDEBAR -->
+      <div class="col-md-9 col-sm-7">
+        <div class="row margin-bottom-40">
+          <div class="col-md-12 col-sm-9">
+            <div class="row">
+              <div class="col-md-4 col-sm-4" *ngFor="let menu of menuObservable | async">
+                <div class="product-item">
+                  <div class="pi-img-wrapper">
+                    <img src="assets/pages/img/shop-slider/{{menu.img}}" class="img-responsive" alt="Berry Lace Dress">
+                    <div>
+                      <a href="assets/pages/img/shop-slider/{{menu.img}}" class="btn btn-default fancybox-button">Zoom</a>
+                      <a href="/subpage/{{menu.id}}" class="btn btn-default fancybox-fast-view">View</a>
+                    </div>
+                  </div>
+                  <h3>
+                    <a routerLink="/subpage/{{menu.id}}">
+                      <b>{{menu.name}}</b>
+                    </a>
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- BEGIN TWO PRODUCTS & PROMO -->
+        <div class="row margin-bottom-40">
+          <div class="col-md-12 col-sm-9">
+            <div class="row">
+              <h2>Thiết kế nội thất</h2>
+            </div>
+            <div class="row">
+              <div class="col-md-3 col-sm-3" *ngFor="let product of product1Observable | async">
+                <div class="product-item">
+                  <div class="pi-img-wrapper">
+                    <img src="assets/pages/img/products/{{product.images[0].url}}" class="img-responsive" alt="Nội thất bình minh">
+                    <div>
+                      <a href="assets/pages/img/products/{{product.images[0].url}}" class="btn btn-default fancybox-button">Zoom</a>
+                      <a routerLink="/page-detail/{{product.id}}" class="btn btn-default fancybox-fast-view">View</a>
+                    </div>
+                  </div>
+                  <h3>
+                    <a routerLink="/page-detail/{{product.id}}">
+                      <b>{{product.name}}</b>
+                    </a>
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row margin-bottom-40">
+          <div class="col-md-12 col-sm-9">
+            <div class="row">
+              <h2>Thi công nội thất</h2>
+            </div>
+            <div class="row">
+              <div class="col-md-3 col-sm-3" *ngFor="let product of product2Observable | async">
+                <div class="product-item">
+                  <div class="pi-img-wrapper">
+                    <img src="assets/pages/img/products/{{product.images[0].url}}" class="img-responsive" alt="Nội thất bình minh">
+                    <div>
+                      <a href="assets/pages/img/products/{{product.images[0].url}}" class="btn btn-default fancybox-button">Zoom</a>
+                      <a routerLink="/page-detail/{{product.id}}" class="btn btn-default fancybox-fast-view">View</a>
+                    </div>
+                  </div>
+                  <h3>
+                    <a routerLink="/page-detail/{{product.id}}">
+                      <b>{{product.name}}</b>
+                    </a>
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row margin-bottom-40">
+          <div class="col-md-12 col-sm-9">
+            <div class="row">
+              <h2>Trang trí nội thất</h2>
+            </div>
+            <div class="row">
+              <div class="col-md-3 col-sm-3" *ngFor="let product of product3Observable | async">
+                <div class="product-item">
+                  <div class="pi-img-wrapper">
+                    <img src="assets/pages/img/products/{{product.images[0].url}}" class="img-responsive" alt="Nội thất bình minh">
+                    <div>
+                      <a href="assets/pages/img/products/{{product.images[0].url}}" class="btn btn-default fancybox-button">Zoom</a>
+                      <a routerLink="/page-detail/{{product.id}}" class="btn btn-default fancybox-fast-view">View</a>
+                    </div>
+                  </div>
+                  <h3>
+                    <a routerLink="/page-detail/{{product.id}}">
+                      <b>{{product.name}}</b>
+                    </a>
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- END TWO PRODUCTS & PROMO -->
+  </div>
+</div>

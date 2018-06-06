@@ -1,0 +1,56 @@
+<a href="#" class="fancybox-button"></a>
+<div class="main" *ngFor="let product of productObservable | async">
+  <div class="container">
+    <ul class="breadcrumb">
+      <li>
+        <a href="index.html">Home</a>
+      </li>
+      <li class="active">{{product.name}}</li>
+    </ul>
+    <!-- BEGIN SIDEBAR & CONTENT -->
+    <div class="row margin-bottom-40">
+      <div class="sidebar col-md-3 col-sm-5">
+        <app-left-menu></app-left-menu>
+      </div>
+      <!-- BEGIN CONTENT -->
+      <div class="col-md-9 col-sm-7">
+        <div class="product-page">
+          <div class="row">
+            <div class="col-md-12 col-sm-12">
+              <div class="product-main-image">
+                <img src="assets/pages/img/products/{{product.images[0].url}}" alt="Cool green dress with red bell" class="img-responsive"
+                  data-BigImgsrc="assets/pages/img/products/model7.jpg">
+              </div>
+              <div class="product-other-images">
+
+                <a *ngFor="let image of product.images" href="assets/pages/img/products/{{image.url}}" class="fancybox-button" rel="photos-lib">
+                  <img alt="Berry Lace Dress" src="assets/pages/img/products/{{image.url}}">
+                </a>
+              </div>
+            </div>
+
+            <div class="product-page-content" *ngIf="product.video != null">
+                <iframe width="560" height="315" [src]="url" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+            <div class="product-page-content" *ngIf="product.content != null">
+              <ul id="myTab" class="nav nav-tabs">
+                <li>
+                  <a href="#Description" data-toggle="tab">Thông tin</a>
+                </li>
+              </ul>
+              <div id="myTabContent" class="tab-content active">
+                <div class="tab-pane fade" id="Description">
+                  <p>{{product.content}}</p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END CONTENT -->
+    </div>
+    <!-- END SIDEBAR & CONTENT -->
+
+  </div>
+</div>

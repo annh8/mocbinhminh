@@ -1,0 +1,63 @@
+<!-- BEGIN PRE-FOOTER -->
+<div class="pre-footer">
+  <div class="container">
+    <div class="row">
+      <!-- BEGIN BOTTOM ABOUT BLOCK -->
+      <div class="col-md-3 col-sm-6 pre-footer-col">
+        <h2>About us</h2>
+        {{(configObservable | async )?.aboutus}}
+      </div>
+      <!-- END BOTTOM ABOUT BLOCK -->
+      <!-- BEGIN BOTTOM INFO BLOCK -->
+      <div class="col-md-3 col-sm-6 pre-footer-col">
+        <h2>Information</h2>
+        <ul class="list-unstyled">
+          <li *ngFor="let menu of menuObservable | async"><i class="fa fa-angle-right" ></i> <a routerLink="/subpage/{{menu.id}}">{{menu.name}}</a></li>
+        </ul>
+      </div>
+      <!-- END INFO BLOCK -->
+
+      <!-- BEGIN TWITTER BLOCK --> 
+      <div class="col-md-3 col-sm-6 pre-footer-col">
+          <div id="fb-root"></div>
+          <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.12&appId=711423459018142&autoLogAppEvents=1';
+            fjs.parentNode.insertBefore(js, fjs);
+          }(document, 'script', 'facebook-jssdk'));</script>
+          <div class="fb-page" data-href="https://www.facebook.com/moithatmocbinhminh/" data-tabs="timeline" data-width="263" data-height="263" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/moithatmocbinhminh/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/moithatmocbinhminh/">Nội thất Mộc Bình Minh</a></blockquote></div>
+          <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fmoithatmocbinhminh%2F&tabs=timeline&width=263&height=263&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId=711423459018142" width="263" height="263" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+      </div>
+      <!-- END TWITTER BLOCK -->
+
+      <!-- BEGIN BOTTOM CONTACTS -->
+      <div class="col-md-3 col-sm-6 pre-footer-col">
+        <h2>Our Contacts</h2>
+        <address class="margin-bottom-40">
+            {{(configObservable | async )?.location}}<br>
+          Phone: <a href="tel:{{(configObservable | async )?.phone}}">{{(configObservable | async )?.phone}}</a><br>
+          Email: <a href="mailto:{{(configObservable | async )?.email}}">{{(configObservable | async )?.email}}</a><br>
+          Skype: <a href="skype:{{(configObservable | async )?.skype}}">{{(configObservable | async )?.skype}}</a>
+        </address>
+      </div>
+      <!-- END BOTTOM CONTACTS -->
+    </div>
+    <hr>
+    <div class="row">
+      <!-- BEGIN SOCIAL ICONS -->
+      <div class="col-md-6 col-sm-6">
+        <ul class="social-icons">
+          <li><a class="facebook" data-original-title="facebook" href="javascript:;"></a></li>
+          <li><a class="googleplus" data-original-title="googleplus" href="javascript:;"></a></li>
+          <li><a class="youtube" data-original-title="youtube" href="javascript:;"></a></li>
+          <li><a class="skype" data-original-title="skype" href="javascript:;"></a></li>
+        </ul>
+      </div>
+      <!-- END SOCIAL ICONS -->
+    
+    </div>
+  </div>
+</div>
+<!-- END PRE-FOOTER -->

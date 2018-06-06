@@ -1,0 +1,49 @@
+<div class="main">
+  <a href="#" class="fancybox-button"></a>
+  <div class="container">
+    <ul class="breadcrumb">
+      <li>
+        <a href="index.html">Trang chủ</a>
+      </li>
+      <li>
+        <a href="">Store</a>
+      </li>
+      <li class="active" *ngFor="let menu1 of menu | async">{{menu1.name}}</li>
+    </ul>
+    <!-- BEGIN SIDEBAR & CONTENT -->
+    <div class="row margin-bottom-40">
+      <!-- BEGIN SIDEBAR -->
+      <div class="sidebar col-md-3 col-sm-5">
+        <app-left-menu></app-left-menu>
+      </div>
+      <!-- END SIDEBAR -->
+      <!-- BEGIN CONTENT -->
+      <div class="col-md-9 col-sm-7">
+        <!-- BEGIN PRODUCT LIST -->
+        <div class="row product-list">
+          <!-- PRODUCT ITEM START -->
+          <div class="col-md-4 col-sm-6 col-xs-12" *ngFor="let product of productObservable | async">
+            <div class="product-item">
+              <div class="pi-img-wrapper">
+                <img src="assets/pages/img/products/{{product.images[0].url}}" style="height:300px" class="img-responsive" alt="Nội thất bình minh">
+                <div>
+                  <a href="assets/pages/img/products/{{product.images[0].url}}" class="btn btn-default fancybox-button">Zoom</a>
+                  <a routerLink="/page-detail/{{product.id}}" class="btn btn-default fancybox-fast-view">View</a>
+                </div>
+              </div>
+              <h3>
+                <a routerLink="/page-detail/{{product.id}}">
+                  <b>{{product.name}}</b>
+                </a>
+              </h3>
+            </div>
+          </div>
+          <!-- PRODUCT ITEM END -->
+        </div>
+        <!-- END PRODUCT LIST -->
+      </div>
+      <!-- END CONTENT -->
+    </div>
+    <!-- END SIDEBAR & CONTENT -->
+  </div>
+</div>

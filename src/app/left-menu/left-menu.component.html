@@ -1,0 +1,25 @@
+<ul class="list-group margin-bottom-25 sidebar-menu">
+  <li class="list-group-item clearfix dropdown" *ngFor="let menu of result">
+    <a href="javascript:void(0);" class="collapsed">
+      <i class="fa fa-angle-right"></i>
+      {{menu.name}}
+    </a>
+    <ul class="dropdown-menu" style="display:block;">
+      <ng-container *ngFor="let menu_1 of menu2Observable  | async">
+        <li class="list-group-item dropdown clearfix" *ngIf="menu.id == menu_1.parentId">
+          <a routerLink="/subpage/{{menu_1.id}}" class="collapsed">
+            <i class="fa fa-angle-right"></i> {{menu_1.name}}
+          </a>
+          <ul class="dropdown-menu" style="display:block;">
+            <ng-container *ngFor="let menu_2 of menu3Observable| async">
+              <li class="list-group-item dropdown clearfix" *ngIf="menu_1.id == menu_2.parentId">
+                <a href="/subpage/{{menu_2.id}}">
+                  <i class="fa fa-angle-right"></i> {{menu_2.name}} </a>
+              </li>
+            </ng-container>
+          </ul>
+        </li>
+      </ng-container>
+    </ul>
+  </li>
+</ul>

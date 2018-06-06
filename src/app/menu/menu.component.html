@@ -1,0 +1,42 @@
+<!-- BEGIN NAVIGATION -->
+<div class="header-navigation">
+  <ul>
+    <li *ngFor="let menu of menuObservable | async" [ngSwitch]="menu.type" ng-class="menu.type === 2 ? 'dropdown' : 'dropdown dropdown-megamenu'">
+      <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
+        {{menu.name}}
+      </a>
+      <!-- BEGIN DROPDOWN MENU -->
+      <ul class="dropdown-menu" *ngSwitchCase="'2'">
+        <ng-container *ngFor="let menu_1 of menu2Observable | async">
+          <li *ngIf="menu.id === menu_1.parentId">
+            <a routerLink="/subpage/{{menu_1.id}}">{{menu_1.name}}</a>
+          </li>
+        </ng-container>
+      </ul>
+      <ul class="dropdown-menu" *ngSwitchCase="'3'">
+        <li>
+          <div class="header-navigation-content">
+            <div class="row">
+              <ng-container *ngFor="let menu_1 of menu2Observable| async">
+                <div *ngIf="menu.id === menu_1.parentId" class="col-md-4 header-navigation-col">
+                  <h4>
+                    <a href="/subpage/{{menu_1.id}}">{{menu_1.name}}</a>
+                  </h4>
+                  <ul>
+                    <ng-container *ngFor="let menu_2 of menu3Observable| async">
+                      <li *ngIf="menu_1.id === menu_2.parentId">
+                        <a href="/subpage/{{menu_2.id}}">{{menu_2.name}}</a>
+                      </li>
+                    </ng-container>
+                  </ul>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <!-- END DROPDOWN MENU -->
+    </li>
+  </ul>
+</div>
+<!-- END NAVIGATION -->
